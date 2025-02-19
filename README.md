@@ -30,7 +30,6 @@ FlashQuiz is an engaging and interactive quiz platform built with **React.js**. 
 ### 1 Clone the Repository  
 ```sh
 git clone https://github.com/Shradha-2491/quiz-platform.git
-cd flashquiz
 ```
 
 ### 2️ Install Dependencies  
@@ -49,6 +48,6 @@ The app will now be running at: **http://localhost:3000/**
 
 ## Deployment  
 The app is deployed on **Vercel**. You can access it here:  
-🔗 **[FlashQuiz Live](https://your-deployed-url.vercel.app/)**  
+🔗 **[FlashQuiz Live](https://flashquiz-platfrom.netlify.app/)**  
 
 ---
