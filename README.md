@@ -48,6 +48,6 @@ The app will now be running at: **http://localhost:3000/**
 
 ## Deployment  
 The app is deployed on **Vercel**. You can access it here:  
-🔗 **[FlashQuiz Live](https://flashquiz-platfrom.netlify.app/)**  
+🔗 **[FlashQuiz Live](https://quiz-platform-kappa-eight.vercel.app/)**  
 
 ---
