@@ -162,7 +162,7 @@ const Quiz = () => {
 
                     <p className="timer">⏳ {timeLeft}s remaining</p>
 
-                    {selectedAnswer && <button className="next-btn" onClick={nextQuestion}>Next Question</button>}
+                    {selectedAnswer && <button className="next-btn" onClick={nextQuestion}>{(currentQuestion + 1) !== sampleQuestions.length ? `Next Question` : `View Result`}</button>}
                 </div>
             ) : (
                 <div className="scoreboard animate-fade-in">
