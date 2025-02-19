@@ -30,6 +30,7 @@ FlashQuiz is an engaging and interactive quiz platform built with **React.js**. 
 ### 1 Clone the Repository  
 ```sh
 git clone https://github.com/Shradha-2491/quiz-platform.git
+cd quiz-platform
 ```
 
 ### 2️ Install Dependencies  
