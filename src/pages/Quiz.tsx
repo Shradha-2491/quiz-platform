@@ -77,11 +77,15 @@ const Quiz = () => {
     };
 
     // Finishes the quiz and stores attempt history
-    const finishQuiz = () => {
-        const endTime = Date.now();
-        const timeTaken = Math.round((endTime - quizStartedAt) / 1000); // Calculate total time spent
-        setQuizEndTime(timeTaken);
-        saveQuizAttempt(score, sampleQuestions.length); // Save attempt in IndexedDB
+    const finishQuiz = async () => {
+        try {
+            const endTime = Date.now();
+            const timeTaken = Math.round((endTime - quizStartedAt) / 1000);
+            setQuizEndTime(timeTaken);
+            await saveQuizAttempt(score, sampleQuestions.length); // Store quiz attempt
+        } catch (error) {
+            console.error("Failed to save quiz attempt:", error);
+        }
     };
 
     // Restarts the quiz from the beginning
