@@ -6,13 +6,13 @@ FlashQuiz is an engaging and interactive quiz platform built with **React.js**. 
 
 ## Features
 
- **MCQ & NAT Questions** – Supports multiple-choice and numerical input questions.  
- **Instant Feedback** – Users get immediate feedback after selecting an answer.  
- **Timer-based Quizzes** – Each question has a **30-second** timer.  
- **Progress Tracking** – Displays a progress bar to indicate quiz completion.  
- **Scoreboard & Medals** – Awards **Gold, Silver, or Bronze** medals based on performance.  
- **Quiz History (IndexedDB)** – Stores previous quiz attempts locally for review.  
- **Modern & Responsive UI** – Optimized for both mobile and desktop users.  
+- **MCQ & NAT Questions** – Supports multiple-choice and numerical input questions.  
+- **Instant Feedback** – Users get immediate feedback after selecting an answer.  
+- **Timer-based Quizzes** – Each question has a **30-second** timer.  
+- **Progress Tracking** – Displays a progress bar to indicate quiz completion.  
+- **Scoreboard & Medals** – Awards **Gold, Silver, or Bronze** medals based on performance.  
+- **Quiz History (IndexedDB)** – Stores previous quiz attempts locally for review.  
+- **Modern & Responsive UI** – Optimized for both mobile and desktop users.  
 
 ---
 

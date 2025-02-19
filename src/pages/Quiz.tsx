@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { saveQuizAttempt } from "../utils/indexedDB.ts";
 import { useNavigate } from "react-router-dom";
 import "../styles/Quiz.css";
 import { sampleQuestions } from "../data/questions.ts";
 
 const Quiz = () => {
+    const feedbackRef = useRef<HTMLParagraphElement | null>(null);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState<string | number | null>(null);
     const [natAnswer, setNAtAnswer] = useState<string | number | null>(null);
@@ -27,6 +28,13 @@ const Quiz = () => {
             nextQuestion(); // Auto move to the next question when timer hits 0
         }
     }, [timeLeft]);
+
+    useEffect(() => {
+        if (selectedAnswer !== null && feedbackRef.current) {
+            feedbackRef.current.focus(); // Set focus for accessibility
+            feedbackRef.current.scrollIntoView({ behavior: "smooth", block: "center" }); // Auto-scroll
+        }
+    }, [selectedAnswer]);
 
     // Handles MCQ answer selection
     const handleMCQClick = (option: string) => {
@@ -114,18 +122,18 @@ const Quiz = () => {
                             {sampleQuestions[currentQuestion].options?.map((option) => (
                                 <button
                                     key={option}
-                                    className={`option-btn ${selectedAnswer
+                                    className={`option-btn  ${selectedAnswer === option
                                         ? option === sampleQuestions[currentQuestion].answer
                                             ? "correct"
                                             : "wrong"
-                                        : ""
-                                        }`}
+                                        : ""}`}
                                     onClick={() => handleMCQClick(option)}
                                     disabled={!!selectedAnswer}
                                 >
                                     {option}
                                 </button>
                             ))}
+
                         </div>
                     ) : (
                         <div className="nat-container">
@@ -141,7 +149,11 @@ const Quiz = () => {
                             </button>
 
                             {selectedAnswer !== null && (
-                                <p className={`feedback ${isAnswerCorrect ? "correct-text" : "wrong-text"}`}>
+                                <p
+                                    ref={feedbackRef}
+                                    tabIndex={-1} // Make it focusable for accessibility
+                                    className={`feedback ${isAnswerCorrect ? "correct-text" : "wrong-text"}`}
+                                >
                                     {isAnswerCorrect ? "✅ Correct!" : "❌ Incorrect"}
                                 </p>
                             )}
@@ -153,7 +165,6 @@ const Quiz = () => {
                     {selectedAnswer && <button className="next-btn" onClick={nextQuestion}>Next Question</button>}
                 </div>
             ) : (
-                // Scoreboard Display After Quiz Completion
                 <div className="scoreboard animate-fade-in">
                     <h2>🎉 Quiz Completed!</h2>
                     <p>✅ Score: <strong>{score} / {sampleQuestions.length}</strong></p>
