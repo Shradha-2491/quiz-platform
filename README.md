@@ -16,7 +16,7 @@ FlashQuiz is an engaging and interactive quiz platform built with **React.js**. 
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend:** React.js, TypeScript  
 - **State Management:** React Hooks (`useState`, `useEffect`)  
